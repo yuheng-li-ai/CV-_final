@@ -1,0 +1,41 @@
+name: cvhw3-act
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip>=24
+  - pytorch
+  - torchvision
+  - pytorch-cuda=12.1
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - pillow
+  - pyyaml
+  - tqdm
+  - rich
+  - typer
+  - h5py
+  - zarr
+  - einops
+  - opencv
+  - imageio
+  - imageio-ffmpeg
+  - git
+  - pip:
+      - swanlab
+      - "lerobot[aloha]"
+      - gymnasium
+      - hydra-core
+      - omegaconf
+      - datasets
+      - huggingface-hub
+      - safetensors
+      - ruff
+      - pytest
+      - pytest-cov

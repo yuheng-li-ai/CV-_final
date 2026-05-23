@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Environments
+.venv/
+venv/
+env/
+.conda/
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Large CV artifacts
+data/
+external/
+runs/
+checkpoints/
+wandb/
+swanlog/
+swanlab/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.ply
+*.obj
+*.glb
+*.gltf
+
+# Reports
+reports/*.aux
+reports/*.bbl
+reports/*.blg
+reports/*.fdb_latexmk
+reports/*.fls
+reports/*.log
+reports/*.out
+reports/*.synctex.gz
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
