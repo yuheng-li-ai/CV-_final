@@ -1,0 +1,12 @@
+swanlab
+lpips
+configargparse
+omegaconf
+hydra-core
+einops
+kornia
+rembg
+pymatting
+ruff
+pytest
+pytest-cov
