@@ -38,12 +38,10 @@ Then install pip-only packages with retries:
 
 ```bash
 conda activate cvhw3-scene
-python -m pip install --upgrade pip
-python -m pip install --timeout 120 --retries 10 --no-cache-dir -r envs/scene-pip.txt
+bash scripts/install_pip_requirements.sh envs/scene-pip.txt
 
 conda activate cvhw3-act
-python -m pip install --upgrade pip
-python -m pip install --timeout 120 --retries 10 --no-cache-dir -r envs/act-pip.txt
+bash scripts/install_pip_requirements.sh envs/act-pip.txt
 ```
 
 Update existing environments with:
@@ -52,9 +50,16 @@ Update existing environments with:
 conda env update -f envs/scene.yml --prune
 conda env update -f envs/act.yml --prune
 conda activate cvhw3-scene
-python -m pip install --timeout 120 --retries 10 --no-cache-dir -r envs/scene-pip.txt
+bash scripts/install_pip_requirements.sh envs/scene-pip.txt
 conda activate cvhw3-act
-python -m pip install --timeout 120 --retries 10 --no-cache-dir -r envs/act-pip.txt
+bash scripts/install_pip_requirements.sh envs/act-pip.txt
+```
+
+If the Tsinghua mirror is unstable, pass a different index URL:
+
+```bash
+bash scripts/install_pip_requirements.sh envs/scene-pip.txt https://mirrors.aliyun.com/pypi/simple/
+bash scripts/install_pip_requirements.sh envs/scene-pip.txt https://pypi.org/simple
 ```
 
 ## Scene Environment Checklist
@@ -164,7 +169,7 @@ python -c "import swanlab; print(swanlab.__version__)"
 
 - Blender is not currently available in PATH and may need installation.
 - GitHub HTTPS failed through the current proxy; use SSH with the local proxy if needed.
-- Pip downloads can fail with `IncompleteRead` on an unstable connection. The YAML files intentionally keep pip packages in `envs/*-pip.txt` so Conda environment creation can complete first, and pip can be retried separately with `--timeout 120 --retries 10 --no-cache-dir`.
+- Pip downloads can fail with `IncompleteRead` on an unstable connection. The YAML files intentionally keep pip packages in `envs/*-pip.txt` so Conda environment creation can complete first. Use `scripts/install_pip_requirements.sh` to install one package at a time with retries, so a transient network failure only repeats the current package.
 - 2DGS, threestudio, and Magic123 may require specific CUDA/PyTorch combinations. Keep them in `cvhw3-scene`.
 - LeRobot/CALVIN may require package versions that conflict with 3D generation tools. Keep them in `cvhw3-act`.
 - Large datasets and checkpoints must stay outside Git.
