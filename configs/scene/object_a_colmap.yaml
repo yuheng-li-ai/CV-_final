@@ -1,0 +1,23 @@
+experiment:
+  name: object_a_colmap
+  command: prepare-object
+  output_dir: runs/scene/object_a_colmap
+  draft_path: draft.md
+
+tools:
+  ffmpeg: ffmpeg
+  colmap: colmap
+
+inputs:
+  video_path: data/scene/object_a/raw/object_a.mp4
+
+paths:
+  image_dir: data/scene/object_a/frames
+  workspace_dir: runs/scene/object_a_colmap/colmap
+
+frame_extraction:
+  fps: 2
+
+colmap:
+  camera_model: SIMPLE_RADIAL
+  single_camera: true

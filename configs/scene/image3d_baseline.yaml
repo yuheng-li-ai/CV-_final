@@ -1,0 +1,20 @@
+experiment:
+  name: image3d_baseline
+  command: generate-image3d
+  draft_path: draft.md
+
+tools:
+  python: python
+  launch_script: external/Magic123/run.py
+
+inputs:
+  image_path: data/scene/object_c/object_c.png
+
+prompt:
+  text: A single clean object reconstructed as a textured 3D asset
+
+paths:
+  output_dir: runs/scene/image3d_baseline
+
+runtime:
+  gpu: 0

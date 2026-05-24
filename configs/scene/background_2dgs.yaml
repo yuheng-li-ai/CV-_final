@@ -1,0 +1,17 @@
+experiment:
+  name: background_2dgs
+  command: train-2dgs
+  draft_path: draft.md
+
+tools:
+  python: python
+  train_script: external/2d-gaussian-splatting/train.py
+
+paths:
+  source_scene: data/scene/background/colmap
+  output_dir: runs/scene/background_2dgs
+
+training:
+  iterations: 30000
+  eval: true
+  seed: 0

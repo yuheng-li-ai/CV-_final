@@ -1,0 +1,21 @@
+experiment:
+  name: fusion_baseline
+  command: fuse-scene
+  draft_path: draft.md
+
+inputs:
+  background_scene: runs/scene/background_2dgs/point_cloud
+  asset_paths:
+    - runs/scene/object_a_colmap/colmap/dense
+    - runs/scene/text3d_baseline/export
+    - runs/scene/image3d_baseline/export
+  fused_scene: runs/scene/fusion_baseline/scene.json
+
+paths:
+  output_dir: runs/scene/fusion_baseline
+  video_path: runs/scene/fusion_baseline/final_video.mp4
+
+render:
+  camera_path: configs/scene/render_camera_path.json
+  fps: 30
+  seconds: 12

@@ -1,0 +1,18 @@
+experiment:
+  name: text3d_baseline
+  command: generate-text3d
+  draft_path: draft.md
+
+tools:
+  python: python
+  launch_script: external/threestudio/launch.py
+
+prompt:
+  text: A clean ceramic mug
+  config: configs/external/threestudio/text3d_baseline.yaml
+
+paths:
+  output_dir: runs/scene/text3d_baseline
+
+runtime:
+  gpu: 0
