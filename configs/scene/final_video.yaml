@@ -1,0 +1,38 @@
+experiment:
+  name: final_video
+  command: render-video
+  stage: M6
+
+inputs:
+  background_scene: runs/scene/background_2dgs_high/point_cloud/iteration_30000/point_cloud.ply
+  background_backplate: runs/scene/background_2dgs_high/test/ours_30000/renders/00000.png
+  fused_scene: runs/scene/fusion_table_insert_v7_a_flip_y_b_flip_x/scene.json
+
+tools:
+  blender: external/blender/blender-4.5.4-linux-x64/blender
+  blender_script: scripts/blender_fusion_scene.py
+
+paths:
+  output_dir: runs/scene/final_video
+  video_path: runs/scene/final_video/final_walkthrough.mp4
+
+render:
+  resolution: 1920x1080
+  fps: 30
+  seconds: 24
+  samples: 48
+  camera_path: phase7_table_orbit
+  environment: proxy_garden_table
+  sequence:
+    - background_intro
+    - approach_assets
+    - orbit_object_a
+    - orbit_object_b
+    - orbit_object_c
+    - wide_shot
+
+logging:
+  enabled: false
+  backend: wandb
+  project: cvhw3-task1
+  mode: offline

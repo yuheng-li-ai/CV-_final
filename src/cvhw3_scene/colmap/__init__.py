@@ -7,7 +7,7 @@ class ColmapRunner:
 
     def build_command(self) -> list[str]:
         colmap = str(self.config.get("tools.colmap", "colmap"))
-        return [
+        command = [
             colmap,
             "automatic_reconstructor",
             "--workspace_path",
@@ -19,6 +19,15 @@ class ColmapRunner:
             "--single_camera",
             str(int(bool(self.config.get("colmap.single_camera", True)))),
         ]
+        if self.config.get("colmap.use_gpu") is not None:
+            use_gpu = int(bool(self.config.get("colmap.use_gpu")))
+            command.extend(["--use_gpu", str(use_gpu)])
+        if self.config.get("colmap.gpu_index") is not None:
+            gpu_index = str(self.config.get("colmap.gpu_index"))
+            command.extend(["--gpu_index", gpu_index])
+        if self.config.get("colmap.num_threads") is not None:
+            command.extend(["--num_threads", str(self.config.get("colmap.num_threads"))])
+        return command
 
     def dry_run(self) -> DryRunResult:
         return DryRunResult(

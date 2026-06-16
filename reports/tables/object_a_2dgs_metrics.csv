@@ -1,0 +1,4 @@
+run_id,model_path,status,test_key,iteration,psnr,ssim,lpips,checkpoint_exists,checkpoint_size_bytes,render_count,gt_count,results_path,preview_path,notes
+full,runs/scene/object_a_2dgs_full,complete,ours_15000,15000,21.813936233520508,0.841981828212738,0.3548964560031891,true,72491224,11,11,runs/scene/object_a_2dgs_full/results.json,reports/figures/object_a_2dgs_full_preview.jpg,
+half,runs/scene/object_a_2dgs_half,complete,ours_15000,15000,22.424612045288086,0.7944319248199463,0.3245447874069214,true,94846016,11,11,runs/scene/object_a_2dgs_half/results.json,reports/figures/object_a_2dgs_half_preview.jpg,
+dense_half,runs/scene/object_a_2dgs_dense,complete,ours_15000,15000,24.76541519165039,0.8227623105049133,0.30000996589660645,true,75425324,19,19,runs/scene/object_a_2dgs_dense/results.json,reports/figures/object_a_2dgs_dense_preview.jpg,dense COLMAP plus half resolution rerun after Matplotlib colormap compatibility fix

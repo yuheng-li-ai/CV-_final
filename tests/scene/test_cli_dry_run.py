@@ -9,6 +9,7 @@ def test_cli_help_lists_scene_pipeline_commands():
         "prepare-object",
         "run-colmap",
         "train-2dgs",
+        "eval-2dgs",
         "generate-text3d",
         "generate-image3d",
         "fuse-scene",

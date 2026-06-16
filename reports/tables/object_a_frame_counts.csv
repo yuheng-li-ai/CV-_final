@@ -1,0 +1,4 @@
+run_id,fps,image_dir,frame_count,first_frame,last_frame
+object_a_frames_sparse,1,data/scene/object_a/frames_sparse,49,data/scene/object_a/frames_sparse/frame_000001.png,data/scene/object_a/frames_sparse/frame_000049.png
+object_a_frames_medium,2,data/scene/object_a/frames_medium,99,data/scene/object_a/frames_medium/frame_000001.png,data/scene/object_a/frames_medium/frame_000099.png
+object_a_frames_dense,3,data/scene/object_a/frames_dense,148,data/scene/object_a/frames_dense/frame_000001.png,data/scene/object_a/frames_dense/frame_000148.png

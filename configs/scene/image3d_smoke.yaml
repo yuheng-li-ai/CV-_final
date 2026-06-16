@@ -1,0 +1,36 @@
+experiment:
+  name: image3d_smoke
+  command: generate-image3d
+  stage: M4_smoke
+
+tools:
+  python: python
+  wrapper_script: scripts/run_magic123.py
+  repo_dir: external/Magic123
+  entrypoint: external/Magic123/main.py
+
+inputs:
+  image_path: data/scene/object_c/masked/object_c_auto.png
+
+prompt:
+  text: A single yellow cartoon toy creature, clean object, front view
+
+paths:
+  output_dir: runs/scene/image3d_smoke_small
+
+runtime:
+  gpu: 0
+  mode: coarse
+  tag: smoke
+  coarse_iters: 1
+  fine_iters: 1
+  sd_version: "1.5"
+  dataset_size_train: 4
+  dataset_size_valid: 1
+  dataset_size_test: 4
+
+logging:
+  enabled: false
+  backend: wandb
+  project: cvhw3-task1
+  mode: offline

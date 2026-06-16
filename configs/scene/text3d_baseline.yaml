@@ -5,14 +5,33 @@ experiment:
 
 tools:
   python: python
+  wrapper_script: scripts/run_threestudio.py
+  repo_dir: external/threestudio
   launch_script: external/threestudio/launch.py
 
 prompt:
   text: A clean ceramic mug
-  config: configs/external/threestudio/text3d_baseline.yaml
+  config: configs/dreamfusion-sd.yaml
 
 paths:
   output_dir: runs/scene/text3d_baseline
 
 runtime:
   gpu: 0
+  mode: train
+  tag: main
+  max_steps: 10000
+  width: 64
+  height: 64
+  batch_size: 1
+  val_check_interval: 200
+  gradio_progress: true
+  extra_args:
+    - system.prompt_processor.pretrained_model_name_or_path=Manojb/stable-diffusion-2-1-base
+    - system.guidance.pretrained_model_name_or_path=Manojb/stable-diffusion-2-1-base
+
+logging:
+  enabled: false
+  backend: wandb
+  project: cvhw3-task1
+  mode: offline

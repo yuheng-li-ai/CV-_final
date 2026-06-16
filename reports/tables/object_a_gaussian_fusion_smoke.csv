@@ -1,0 +1,2 @@
+run_id,source_gaussians,cropped_gaussians,crop_ratio,source_ply_mb,crop_ply_mb,render_smoke,preview,selection,notes
+fusion_gaussian_a_smoke,309114,12067,0.0390,71.93,2.81,success,reports/figures/object_a_gaussian_crop_render_smoke.jpg,extension_candidate,"Gaussian crop bypasses TSDF mesh extraction and preserves Object A color/detail on some difficult non-umbrella views, especially view 00017; however bbox cropping is too aggressive for all views and true insertion into the garden 2DGS coordinate system still requires COLMAP-space alignment."

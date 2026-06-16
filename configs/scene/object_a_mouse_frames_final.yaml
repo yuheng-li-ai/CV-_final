@@ -1,0 +1,22 @@
+experiment:
+  name: object_a_mouse_frames_final
+  command: prepare-object
+  stage: M2_final
+
+tools:
+  ffmpeg: ffmpeg
+
+inputs:
+  video_path: data/scene/object_a_mouse/raw/object_a_mouse.mp4
+
+paths:
+  image_dir: data/scene/object_a_mouse/frames_dense
+
+frame_extraction:
+  fps: 3
+
+logging:
+  enabled: false
+  backend: wandb
+  project: cvhw3-task1
+  mode: offline

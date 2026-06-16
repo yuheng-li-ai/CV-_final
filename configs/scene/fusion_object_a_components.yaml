@@ -1,0 +1,91 @@
+experiment:
+  name: fusion_object_a_components
+  command: fuse-scene
+  stage: M5_debug
+
+inputs:
+  background_scene: runs/scene/background_2dgs_high/point_cloud/iteration_30000/point_cloud.ply
+  background_backplate: runs/scene/background_2dgs_high/test/ours_30000/renders/00000.png
+  assets:
+    - name: component_00
+      kind: ply_mesh
+      path: runs/scene/object_a_2dgs_dense/train/ours_15000/components/component_00.ply
+      source_up: z
+      target_height: 0.45
+      location: [-1.40, 0.0, 0.0]
+      rotation_deg: [0, 0, 0]
+    - name: component_01
+      kind: ply_mesh
+      path: runs/scene/object_a_2dgs_dense/train/ours_15000/components/component_01.ply
+      source_up: z
+      target_height: 0.45
+      location: [-1.00, 0.0, 0.0]
+      rotation_deg: [0, 0, 0]
+    - name: component_02
+      kind: ply_mesh
+      path: runs/scene/object_a_2dgs_dense/train/ours_15000/components/component_02.ply
+      source_up: z
+      target_height: 0.45
+      location: [-0.60, 0.0, 0.0]
+      rotation_deg: [0, 0, 0]
+    - name: component_03
+      kind: ply_mesh
+      path: runs/scene/object_a_2dgs_dense/train/ours_15000/components/component_03.ply
+      source_up: z
+      target_height: 0.45
+      location: [-0.20, 0.0, 0.0]
+      rotation_deg: [0, 0, 0]
+    - name: component_04
+      kind: ply_mesh
+      path: runs/scene/object_a_2dgs_dense/train/ours_15000/components/component_04.ply
+      source_up: z
+      target_height: 0.45
+      location: [0.20, 0.0, 0.0]
+      rotation_deg: [0, 0, 0]
+    - name: component_05
+      kind: ply_mesh
+      path: runs/scene/object_a_2dgs_dense/train/ours_15000/components/component_05.ply
+      source_up: z
+      target_height: 0.45
+      location: [0.60, 0.0, 0.0]
+      rotation_deg: [0, 0, 0]
+    - name: component_06
+      kind: ply_mesh
+      path: runs/scene/object_a_2dgs_dense/train/ours_15000/components/component_06.ply
+      source_up: z
+      target_height: 0.45
+      location: [1.00, 0.0, 0.0]
+      rotation_deg: [0, 0, 0]
+    - name: component_07
+      kind: ply_mesh
+      path: runs/scene/object_a_2dgs_dense/train/ours_15000/components/component_07.ply
+      source_up: z
+      target_height: 0.45
+      location: [1.40, 0.0, 0.0]
+      rotation_deg: [0, 0, 0]
+  fused_scene: runs/scene/fusion_object_a_components/scene.json
+
+tools:
+  blender: external/blender/blender-4.5.4-linux-x64/blender
+  blender_script: scripts/blender_fusion_scene.py
+
+paths:
+  output_dir: runs/scene/fusion_object_a_components
+  video_path: runs/scene/fusion_object_a_components/final_video.mp4
+
+fusion:
+  variant: object_a_component_debug
+  scale_multiplier: 1.0
+  position_offset: [0.0, 0.0, 0.0]
+  enable_shadow: true
+
+render:
+  resolution: 1280x720
+  fps: 30
+  seconds: 12
+
+logging:
+  enabled: false
+  backend: wandb
+  project: cvhw3-task1
+  mode: offline

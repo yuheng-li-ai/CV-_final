@@ -6,6 +6,8 @@ experiment:
 tools:
   python: python
   train_script: external/2d-gaussian-splatting/train.py
+  render_script: external/2d-gaussian-splatting/render.py
+  metrics_script: external/2d-gaussian-splatting/metrics.py
 
 paths:
   source_scene: data/scene/background/colmap
@@ -15,3 +17,16 @@ training:
   iterations: 30000
   eval: true
   seed: 0
+
+evaluation:
+  iteration: 30000
+  skip_train: true
+  skip_test: false
+  skip_mesh: true
+  quiet: true
+
+logging:
+  enabled: false
+  backend: wandb
+  project: cvhw3-task1
+  mode: offline

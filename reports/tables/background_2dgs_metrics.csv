@@ -1,0 +1,4 @@
+run_id,model_path,method,iteration,psnr,ssim,lpips,render_count,gt_count,results_json
+background_2dgs_low,runs/scene/background_2dgs_low,ours_5000,5000,25.190664291381836,0.7677450776100159,0.25556084513664246,24,24,runs/scene/background_2dgs_low/results.json
+background_2dgs_mid,runs/scene/background_2dgs_mid,ours_15000,15000,26.206167221069336,0.8208866119384766,0.18119029700756073,24,24,runs/scene/background_2dgs_mid/results.json
+background_2dgs_high,runs/scene/background_2dgs_high,ours_30000,30000,26.650115966796875,0.8336549401283264,0.1637781411409378,24,24,runs/scene/background_2dgs_high/results.json

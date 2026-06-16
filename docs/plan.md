@@ -1,8 +1,8 @@
 # CV HW3 Implementation Plan
 
-Student: yuhengli  
-Student ID: 23307130334  
-GitHub repository: https://github.com/yuheng-li-ai/CV-_final  
+Student: yuhengli
+Student ID: 23307130334
+GitHub repository: https://github.com/yuheng-li-ai/CV-_final
 Deadline: 2026-06-23 23:59 Beijing time
 
 ## 1. Objectives

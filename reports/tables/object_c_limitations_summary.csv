@@ -1,0 +1,4 @@
+variant,background_mode,vertices,faces,geometry_score,texture_score,fusion_readiness_score,selection,paper_claim
+raw,raw_image,18695,34856,2,2,1,rejected_reconstruction_failed,front appearance is recognizable but raw background pollution and side/back hallucination prevent a reliable 3D asset
+auto_mask,automatic_background_removal,25874,50000,1,2,1,rejected_reconstruction_failed,previously selected candidate is now marked failed because validation views show no stable 3D reconstruction beyond the front-facing appearance
+refined_mask,refined_mask,27090,50000,1,2,1,rejected_reconstruction_failed,cleaner mask does not fix the single-image ambiguity; geometry remains inflated and structurally unreliable

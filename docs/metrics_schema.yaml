@@ -1,0 +1,84 @@
+two_dgs:
+  required:
+    psnr: float
+    ssim: float
+    lpips: float
+    elapsed_time: string
+    peak_vram_mb: int
+    input_views: int
+    registered_images: int
+    sparse_points: int
+    checkpoint_size_mb: float
+    render_paths: list
+  optional:
+    notes: string
+    wandb_url: string
+    swanlab_url: string
+
+colmap:
+  required:
+    elapsed_time: string
+    input_frames: int
+    registered_images: int
+    sparse_points: int
+    dense_points: int
+    failure_modes: list
+  optional:
+    camera_model: string
+    average_reprojection_error: float
+
+generation_asset:
+  required:
+    generation_time: string
+    vertices: int
+    faces: int
+    texture_resolution: string
+    geometry_score_1_to_5: int
+    texture_score_1_to_5: int
+    fusion_readiness_1_to_5: int
+    artifact_notes: string
+  text_to_3d_extra:
+    prompt: string
+    prompt_variant: string
+    janus_artifacts: string
+  image_to_3d_extra:
+    input_variant: string
+    mask_path: string
+    background_pollution: string
+    boundary_noise: string
+
+fusion:
+  required:
+    scale_score_1_to_5: int
+    contact_score_1_to_5: int
+    lighting_score_1_to_5: int
+    viewpoint_stability_1_to_5: int
+    artifact_count: int
+    video_quality: string
+    object_a_transform: object
+    object_b_transform: object
+    object_c_transform: object
+  optional:
+    blender_file: string
+    final_video: string
+    keyframes: list
+
+manual_score_rubric:
+  geometry:
+    1: broken_or_unusable_geometry
+    2: recognizable_with_major_holes_or_duplicate_surfaces
+    3: mostly_complete_with_visible_artifacts
+    4: complete_and_stable_from_most_views
+    5: clean_stable_report_ready
+  texture:
+    1: missing_or_severely_polluted_texture
+    2: recognizable_with_major_artifacts
+    3: acceptable_with_visible_seams_or_blur
+    4: good_with_minor_artifacts
+    5: clean_and_consistent
+  fusion_readiness:
+    1: cannot_be_placed
+    2: severe_scale_orientation_or_mesh_problems
+    3: usable_after_manual_cleanup
+    4: fits_scene_with_minor_tuning
+    5: ready_for_final_render

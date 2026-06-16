@@ -1,20 +1,33 @@
 experiment:
   name: image3d_baseline
   command: generate-image3d
-  draft_path: draft.md
+  stage: M4
 
 tools:
   python: python
-  launch_script: external/Magic123/run.py
+  wrapper_script: scripts/run_magic123.py
+  repo_dir: external/Magic123
+  entrypoint: external/Magic123/main.py
 
 inputs:
-  image_path: data/scene/object_c/object_c.png
+  image_path: data/scene/object_c/masked/object_c_auto.png
 
 prompt:
-  text: A single clean object reconstructed as a textured 3D asset
+  text: A single yellow cartoon toy creature, clean object, front view
 
 paths:
   output_dir: runs/scene/image3d_baseline
 
 runtime:
   gpu: 0
+  mode: both
+  tag: auto_mask
+  coarse_iters: 5000
+  fine_iters: 5000
+  sd_version: "1.5"
+
+logging:
+  enabled: false
+  backend: wandb
+  project: cvhw3-task1
+  mode: offline

@@ -19,3 +19,9 @@ render:
   camera_path: configs/scene/render_camera_path.json
   fps: 30
   seconds: 12
+
+logging:
+  enabled: false
+  backend: wandb
+  project: cvhw3-task1
+  mode: offline

@@ -1,0 +1,90 @@
+experiment:
+  name: fusion_table_insert_v7_a_flip_x
+  command: fuse-scene
+  stage: M5_R6
+inputs:
+  background_scene: runs/scene/background_2dgs_high/point_cloud/iteration_30000/point_cloud.ply
+  background_backplate: runs/scene/background_2dgs_high/test/ours_30000/renders/00000.png
+  assets:
+  - name: object_a
+    kind: ply_mesh
+    path: runs/scene/object_a_2dgs_dense/train/ours_15000/components/component_02.ply
+    source_up: z
+    target_height: 0.62
+    location:
+    - -0.44
+    - 0.04
+    - 0.0
+    rotation_deg:
+    - 180.0
+    - 0.0
+    - -8.0
+    material_color:
+    - 0.72
+    - 0.62
+    - 0.5
+    - 1.0
+    robust_percentile_low: 5
+    robust_percentile_high: 95
+  - name: object_b
+    kind: textured_obj
+    path: runs/scene/text3d_style_constrained/main/save/it10000-export/model.obj
+    texture: runs/scene/text3d_style_constrained/main/save/it10000-export/texture_kd.jpg
+    source_up: y
+    target_height: 0.42
+    location:
+    - 0.0
+    - -0.03
+    - 0.0
+    rotation_deg:
+    - 0
+    - 0
+    - 12
+    material_color:
+    - 0.74
+    - 0.7
+    - 0.64
+    - 1.0
+  - name: object_c
+    kind: textured_obj
+    path: runs/scene/image3d_auto_mask/auto_mask/fine/mesh/mesh.obj
+    texture: runs/scene/image3d_auto_mask/auto_mask/fine/mesh/albedo.png
+    source_up: z
+    target_height: 0.32
+    location:
+    - 0.44
+    - 0.04
+    - 0.0
+    rotation_deg:
+    - 0
+    - 0
+    - -16
+    material_color:
+    - 1.0
+    - 0.84
+    - 0.18
+    - 1.0
+  fused_scene: runs/scene/fusion_table_insert_v7_a_flip_x/scene.json
+tools:
+  blender: external/blender/blender-4.5.4-linux-x64/blender
+  blender_script: scripts/blender_fusion_scene.py
+paths:
+  output_dir: runs/scene/fusion_table_insert_v7_a_flip_x
+  video_path: runs/scene/fusion_table_insert_v7_a_flip_x/final_video.mp4
+fusion:
+  variant: table_insert_v7_a_flip_x
+  scale_multiplier: 0.62
+  position_offset:
+  - 0.0
+  - 0.0
+  - 0.0
+  enable_shadow: true
+render:
+  resolution: 1280x720
+  fps: 30
+  seconds: 12
+logging:
+  enabled: false
+  backend: wandb
+  project: cvhw3-task1
+  mode: offline

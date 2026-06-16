@@ -1,0 +1,36 @@
+experiment:
+  name: text3d_detailed_export_retry
+  command: generate-text3d
+  stage: M3_R4
+
+tools:
+  python: python
+  wrapper_script: scripts/run_threestudio.py
+  repo_dir: external/threestudio
+  launch_script: external/threestudio/launch.py
+
+prompt:
+  text: A single matte ceramic mug with a simple handle, stable proportions, clean topology, neutral studio lighting
+  config: configs/dreamfusion-sd.yaml
+
+paths:
+  output_dir: runs/scene/text3d_detailed
+
+runtime:
+  gpu: 0
+  mode: export
+  tag: main
+  width: 64
+  height: 64
+  batch_size: 1
+  gradio_progress: true
+  extra_args:
+    - system.prompt_processor.pretrained_model_name_or_path=/home/yuhengli/.cache/huggingface/hub/models--Manojb--stable-diffusion-2-1-base/snapshots/0094d483a120f3f33dafbd187ea4aa60d10de75c
+    - system.guidance.pretrained_model_name_or_path=/home/yuhengli/.cache/huggingface/hub/models--Manojb--stable-diffusion-2-1-base/snapshots/0094d483a120f3f33dafbd187ea4aa60d10de75c
+    - system.geometry.isosurface_remove_outliers=false
+
+logging:
+  enabled: false
+  backend: wandb
+  project: cvhw3-task1
+  mode: offline

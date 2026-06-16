@@ -1,0 +1,29 @@
+experiment:
+  name: object_a_mouse_2dgs_eval_final
+  command: eval-2dgs
+  stage: M2_final_eval
+
+tools:
+  python: python
+  render_script: external/2d-gaussian-splatting/render.py
+  metrics_script: external/2d-gaussian-splatting/metrics.py
+
+paths:
+  source_scene: runs/scene/object_a_mouse_colmap_final/colmap/dense
+  output_dir: runs/scene/object_a_mouse_2dgs_final
+
+evaluation:
+  iteration: 15000
+  skip_train: true
+  skip_test: false
+  skip_mesh: false
+  quiet: true
+  render_path: false
+  mesh_res: 256
+  num_cluster: 50
+
+logging:
+  enabled: false
+  backend: wandb
+  project: cvhw3-task1
+  mode: offline

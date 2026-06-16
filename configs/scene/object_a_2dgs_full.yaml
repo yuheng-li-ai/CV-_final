@@ -1,0 +1,35 @@
+experiment:
+  name: object_a_2dgs_full
+  command: train-2dgs
+  stage: M2_R3
+
+tools:
+  python: python
+  train_script: external/2d-gaussian-splatting/train.py
+  render_script: external/2d-gaussian-splatting/render.py
+  metrics_script: external/2d-gaussian-splatting/metrics.py
+
+paths:
+  source_scene: runs/scene/object_a_colmap_medium/colmap/dense
+  output_dir: runs/scene/object_a_2dgs_full
+
+training:
+  iterations: 15000
+  eval: true
+  seed: 0
+  resolution: full
+  ip: 127.0.0.1
+  port: 6021
+
+evaluation:
+  iteration: 15000
+  skip_train: true
+  skip_test: false
+  skip_mesh: true
+  quiet: true
+
+logging:
+  enabled: false
+  backend: wandb
+  project: cvhw3-task1
+  mode: offline

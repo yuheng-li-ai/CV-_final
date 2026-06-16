@@ -1,0 +1,86 @@
+source:
+  pdf_found: true
+  pdf_path: HW3_计算机视觉.pdf
+  derived_from:
+    - HW3_计算机视觉.pdf
+    - user_task1_objective
+    - docs/plan.md
+  last_audited_utc: "2026-06-01"
+
+hard_submission:
+  pdf_task1_all_items: true
+  github_link: false
+  readme: true
+  report_pdf: false
+  report_expression_unification: false
+  report_materials: false
+  weights_link: false
+  environment_record: false
+  wandb_curves: false
+
+main_pipeline:
+  object_A_colmap: true
+  object_A_2dgs: true
+  object_B_sds: true
+  object_C_magic123: true
+  background_2dgs: true
+  fusion_scene: false
+  fusion_video: false
+
+ablations:
+  R1_background_iterations: true
+  R2_object_A_frame_sampling: true
+  R3_object_A_resolution: true
+  R4_object_B_prompt: true
+  R5_object_C_background_removal: true
+  R6_fusion_transform_shadow: false
+  comparison_table: false
+
+harness:
+  run_manager: true
+  gpu_selection: true
+  smoke_layers: true
+  append_draft: true
+  logging: true
+  nohup_templates: true
+
+required_keys:
+  object_A_colmap: true
+  object_A_2dgs: true
+  object_B_sds: true
+  object_C_magic123: true
+  background_2dgs: true
+  fusion_video: false
+  report_pdf: false
+  report_expression_unification: false
+  comparison_table: false
+  wandb_curves: false
+  github_link: false
+  weights_link: false
+
+manual_score_rubric:
+  scale: "1_to_5_integer"
+  geometry:
+    "1": broken_or_unusable_geometry
+    "2": recognizable_with_major_holes_or_duplicate_surfaces
+    "3": mostly_complete_with_visible_artifacts
+    "4": complete_and_stable_from_most_views
+    "5": clean_stable_report_ready
+  texture:
+    "1": missing_or_severely_polluted_texture
+    "2": recognizable_with_major_artifacts
+    "3": acceptable_with_visible_seams_or_blur
+    "4": good_with_minor_artifacts
+    "5": clean_and_consistent
+  fusion_readiness:
+    "1": cannot_be_placed
+    "2": severe_scale_orientation_or_mesh_problems
+    "3": usable_after_manual_cleanup
+    "4": fits_scene_with_minor_tuning
+    "5": ready_for_final_render
+  fusion_video_stability:
+    "1": unstable_or_visually_broken
+    "2": large_floating_contact_or_lighting_artifacts
+    "3": acceptable_but_visibly_imperfect
+    "4": stable_with_minor_artifacts
+    "5": final_report_quality

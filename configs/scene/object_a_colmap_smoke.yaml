@@ -1,0 +1,22 @@
+experiment:
+  name: object_a_colmap_smoke
+  command: run-colmap
+  stage: M2_smoke
+
+tools:
+  colmap: scripts/colmap_clean_env.sh
+
+paths:
+  image_dir: data/scene/object_a/frames_colmap_smoke
+  workspace_dir: runs/scene/object_a_colmap_smoke/colmap
+
+colmap:
+  camera_model: SIMPLE_RADIAL
+  single_camera: true
+  use_gpu: false
+
+logging:
+  enabled: false
+  backend: wandb
+  project: cvhw3-task1
+  mode: offline

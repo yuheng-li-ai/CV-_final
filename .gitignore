@@ -4,6 +4,7 @@ __pycache__/
 *.egg-info/
 .pytest_cache/
 .ruff_cache/
+.cache/
 .coverage
 htmlcov/
 
@@ -24,7 +25,11 @@ env/
 data/
 external/
 runs/
+outputs/*
+!outputs/.gitkeep
+logs/
 checkpoints/
+/任务C.jpg
 wandb/
 swanlog/
 swanlab/
@@ -41,8 +46,21 @@ swanlab/
 *.obj
 *.glb
 *.gltf
+!videos/
+!videos/*.mp4
+
+# Runtime leftovers
+nohup.out
 
 # Reports
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
 reports/*.aux
 reports/*.bbl
 reports/*.blg
@@ -51,6 +69,8 @@ reports/*.fls
 reports/*.log
 reports/*.out
 reports/*.synctex.gz
+latex_package/
+latex_package.tar.gz
 
 # OS/editor
 .DS_Store

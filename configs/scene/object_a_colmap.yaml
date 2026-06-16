@@ -6,7 +6,7 @@ experiment:
 
 tools:
   ffmpeg: ffmpeg
-  colmap: colmap
+  colmap: scripts/colmap_clean_env.sh
 
 inputs:
   video_path: data/scene/object_a/raw/object_a.mp4
@@ -21,3 +21,10 @@ frame_extraction:
 colmap:
   camera_model: SIMPLE_RADIAL
   single_camera: true
+  use_gpu: false
+
+logging:
+  enabled: false
+  backend: wandb
+  project: cvhw3-task1
+  mode: offline

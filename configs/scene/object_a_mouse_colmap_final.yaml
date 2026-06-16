@@ -1,0 +1,30 @@
+experiment:
+  name: object_a_mouse_colmap_final
+  command: run-colmap
+  stage: M2_final
+
+tools:
+  ffmpeg: ffmpeg
+  colmap: scripts/colmap_clean_env.sh
+
+inputs:
+  video_path: data/scene/object_a_mouse/raw/object_a_mouse.mp4
+
+paths:
+  image_dir: data/scene/object_a_mouse/frames_dense
+  workspace_dir: runs/scene/object_a_mouse_colmap_final/colmap
+
+frame_extraction:
+  fps: 3
+
+colmap:
+  camera_model: SIMPLE_RADIAL
+  single_camera: true
+  use_gpu: false
+  num_threads: 64
+
+logging:
+  enabled: false
+  backend: wandb
+  project: cvhw3-task1
+  mode: offline

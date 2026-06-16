@@ -13,10 +13,11 @@ def test_scene_config_loads_yaml_and_resolves_paths():
 
 
 def test_scene_config_reports_missing_required_paths():
-    config = SceneConfig.from_yaml("configs/scene/object_a_colmap.yaml")
+    missing_path_config = Path("configs/scene/object_a_colmap.yaml")
+    config = SceneConfig.from_yaml(missing_path_config)
 
-    missing = config.validate_required_paths(["inputs.video_path"])
+    missing = config.validate_required_paths(["paths.image_dir"])
 
     assert len(missing) == 1
-    assert missing[0].key == "inputs.video_path"
-    assert "data/scene/object_a/raw/object_a.mp4" in str(missing[0].path)
+    assert missing[0].key == "paths.image_dir"
+    assert "data/scene/object_a/frames" in str(missing[0].path)

@@ -1,0 +1,66 @@
+experiment:
+  name: fusion_coordinate_final
+  command: fuse-scene
+  stage: M5_final
+
+inputs:
+  background_scene: runs/scene/background_2dgs_high/point_cloud/iteration_30000/point_cloud.ply
+  background_backplate: runs/scene/background_2dgs_high/test/ours_30000/renders/00000.png
+  assets:
+    - name: object_a
+      kind: ply_mesh
+      path: runs/scene/object_a_mouse_2dgs_final/train/ours_15000/fuse_post.ply
+      source_up: z
+      target_height: 0.22
+      location: [-0.40, 2.04, 0.10]
+      rotation_deg: [0, 0, -8]
+      material_color: [0.72, 0.62, 0.50, 1.0]
+      robust_percentile_low: 5
+      robust_percentile_high: 95
+    - name: object_b
+      kind: textured_obj
+      path: runs/scene/text3d_simple_object_final/mesh_final_t4_solid_blue/save/it10000-export/model.obj
+      source_up: z
+      target_height: 0.20
+      location: [0.31, 2.08, 0.02]
+      rotation_deg: [0, 0, 0]
+      material_color: [0.02, 0.18, 0.95, 1.0]
+      robust_percentile_low: 1
+      robust_percentile_high: 99
+    - name: object_c
+      kind: textured_obj
+      path: runs/scene/image3d_mouse_final_clean/auto_mask/fine/mesh/mesh.obj
+      texture: runs/scene/image3d_mouse_final_clean/auto_mask/fine/mesh/albedo.png
+      source_up: z
+      target_height: 0.20
+      location: [0.98, 2.10, -0.05]
+      rotation_deg: [0, 0, -18]
+      material_color: [0.90, 0.90, 0.88, 1.0]
+      robust_percentile_low: 5
+      robust_percentile_high: 95
+  fused_scene: runs/scene/fusion_coordinate_final/scene.json
+
+tools:
+  blender: external/blender/blender-4.5.4-linux-x64/blender
+  blender_script: scripts/blender_fusion_scene.py
+
+paths:
+  output_dir: runs/scene/fusion_coordinate_final
+  video_path: runs/scene/fusion_coordinate_final/preview.mp4
+
+fusion:
+  variant: coordinate_final
+  scale_multiplier: 1.0
+  position_offset: [0.0, 0.0, 0.0]
+  enable_shadow: true
+
+render:
+  resolution: 1600x1036
+  fps: 12
+  seconds: 2
+
+logging:
+  enabled: false
+  backend: wandb
+  project: cvhw3-task1
+  mode: offline

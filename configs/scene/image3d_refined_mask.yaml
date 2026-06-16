@@ -1,0 +1,38 @@
+experiment:
+  name: image3d_refined_mask
+  command: generate-image3d
+  stage: M4_R5
+
+tools:
+  python: python
+  wrapper_script: scripts/run_magic123.py
+  repo_dir: external/Magic123
+  entrypoint: external/Magic123/main.py
+
+inputs:
+  image_path: data/scene/object_c/masked/object_c_refined.png
+  mask_path: data/scene/object_c/masks/object_c_refined.png
+
+prompt:
+  text: A single yellow cartoon toy creature, clean object, front view
+
+paths:
+  output_dir: runs/scene/image3d_refined_mask
+
+runtime:
+  gpu: 0
+  mode: both
+  tag: refined_mask
+  coarse_iters: 5000
+  fine_iters: 5000
+  sd_version: "1.5"
+
+preprocess:
+  background_mode: refined_mask
+  centered_crop: true
+
+logging:
+  enabled: false
+  backend: wandb
+  project: cvhw3-task1
+  mode: offline

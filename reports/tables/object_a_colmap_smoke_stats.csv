@@ -1,0 +1,2 @@
+run_id,model_path,cameras,images,registered_images,points,observations,mean_track_length,mean_observations_per_image,mean_reprojection_error_px
+object_a_colmap_smoke_head,runs/scene/object_a_colmap_smoke_head/colmap/sparse/0,1,12,12,671,1962,2.923994,163.500000,1.014050

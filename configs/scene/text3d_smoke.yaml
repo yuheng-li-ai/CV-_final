@@ -1,0 +1,37 @@
+experiment:
+  name: text3d_smoke
+  command: generate-text3d
+  stage: M3_smoke
+
+tools:
+  python: python
+  wrapper_script: scripts/run_threestudio.py
+  repo_dir: external/threestudio
+  launch_script: external/threestudio/launch.py
+
+prompt:
+  text: A clean ceramic mug
+  config: configs/dreamfusion-sd.yaml
+
+paths:
+  output_dir: runs/scene/text3d_smoke_trainonly
+
+runtime:
+  gpu: 0
+  mode: train
+  tag: smoke_trainonly
+  max_steps: 1
+  width: 64
+  height: 64
+  batch_size: 1
+  val_check_interval: 1
+  gradio_progress: false
+  extra_args:
+    - system.prompt_processor.pretrained_model_name_or_path=/home/yuhengli/.cache/huggingface/hub/models--Manojb--stable-diffusion-2-1-base/snapshots/0094d483a120f3f33dafbd187ea4aa60d10de75c
+    - system.guidance.pretrained_model_name_or_path=/home/yuhengli/.cache/huggingface/hub/models--Manojb--stable-diffusion-2-1-base/snapshots/0094d483a120f3f33dafbd187ea4aa60d10de75c
+
+logging:
+  enabled: false
+  backend: wandb
+  project: cvhw3-task1
+  mode: offline

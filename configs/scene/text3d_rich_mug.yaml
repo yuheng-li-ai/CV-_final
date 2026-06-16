@@ -1,0 +1,39 @@
+experiment:
+  name: text3d_rich_mug
+  command: generate-text3d
+  stage: M3_R4_extension
+
+tools:
+  python: python
+  wrapper_script: scripts/run_threestudio.py
+  repo_dir: external/threestudio
+  launch_script: external/threestudio/launch.py
+
+prompt:
+  text: "A single tabletop ceramic coffee mug as a clean 3D asset, rounded cylindrical cup body, open circular rim, visible hollow interior, one smooth C-shaped handle attached to the side, thick ceramic wall, flat stable bottom, glossy off-white glaze with subtle roughness, physically plausible proportions, centered isolated object, full object visible from all views, studio product lighting, high quality 3D model"
+  negative_text: "extra objects, duplicate mug, second handle, broken handle, face, eyes, mouth, character, animal, text, logo, label, pattern, painting, scene background, table, hands, plants, distorted topology, melted shape, floating parts, disconnected pieces, asymmetry, Janus artifact, multi-head, blurry texture, low quality"
+  config: configs/dreamfusion-sd.yaml
+
+paths:
+  output_dir: runs/scene/text3d_rich_mug
+
+runtime:
+  gpu: 0
+  mode: train
+  tag: main
+  max_steps: 10000
+  width: 64
+  height: 64
+  batch_size: 1
+  val_check_interval: 200
+  gradio_progress: true
+  extra_args:
+    - system.prompt_processor.pretrained_model_name_or_path=/home/yuhengli/.cache/huggingface/hub/models--Manojb--stable-diffusion-2-1-base/snapshots/0094d483a120f3f33dafbd187ea4aa60d10de75c
+    - system.guidance.pretrained_model_name_or_path=/home/yuhengli/.cache/huggingface/hub/models--Manojb--stable-diffusion-2-1-base/snapshots/0094d483a120f3f33dafbd187ea4aa60d10de75c
+    - "system.prompt_processor.negative_prompt=extra objects, duplicate mug, second handle, broken handle, face, eyes, mouth, character, animal, text, logo, label, pattern, painting, scene background, table, hands, plants, distorted topology, melted shape, floating parts, disconnected pieces, asymmetry, Janus artifact, multi-head, blurry texture, low quality"
+
+logging:
+  enabled: false
+  backend: wandb
+  project: cvhw3-task1
+  mode: offline

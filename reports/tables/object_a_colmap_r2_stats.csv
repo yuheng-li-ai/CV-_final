@@ -1,0 +1,4 @@
+run_id,model_path,cameras,images,registered_images,points,observations,mean_track_length,mean_observations_per_image,mean_reprojection_error_px
+object_a_sparse,runs/scene/object_a_colmap_sparse/colmap/sparse/0,1,35,35,4130,13892,3.363680,396.914286,0.972736
+object_a_medium,runs/scene/object_a_colmap_medium/colmap/sparse/0,1,87,87,9837,41228,4.191115,473.885057,1.126519
+object_a_dense,runs/scene/object_a_colmap_dense/colmap/sparse/0,1,148,148,24125,114704,4.754570,775.027027,1.129602
